@@ -1,0 +1,129 @@
+<!-- public/index.html -->
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <title>Test App</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  <!-- JQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <!-- Vue.js -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.24/vue.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.7.0/vue-resource.min.js"></script>
+
+  <style>
+  button.btn.btn-primary {
+    width: 8em;
+  }
+  </style>
+
+</head>
+
+<body>
+  <!-- KEYS LIST -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mt-1 mb-1">
+        <h2>Lista de llaves</h2>
+        <ul class="list-group">
+          <li class="list-group-item" v-for="pairkey in pairkeys" style="word-wrap: break-word">
+            <b>Nombre:</b> {{ pairkey.name }}</br>
+            <b>ID:</b> {{ pairkey.id }} </br>
+            <b>Llave pública:</b> </br>{{ pairkey.publickey }} </br>
+            <b>Llave privada:</b> </br>{{ pairkey.privatekey }} </br>
+          </li>
+        </ul>
+        <!-- CREATE LIST -->
+        <h2>Crear par de llaves:</h2>
+        <div class="input-group">
+          <input type="text"
+          class="form-control"
+          placeholder="New pairkey"
+          v-on:keyup.enter="createpairkey"
+          v-model="newpairkey.name">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button" v-on:click="createpairkey">Crear</button>
+          </span>
+        </div>
+        <!-- SEARCH KEY -->
+        <h2>Buscar par de llaves:</h2>
+        <div class="input-group">
+          <input type="text"
+          class="form-control"
+          placeholder="New pairkey"
+          v-on:keyup.enter="searchpairkey"
+          v-model="pairkey.name">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button" v-on:click="searchpairkey">Buscar</button>
+          </span>
+        </div>
+        <!-- ENCRYPT TEXT-->
+        <h2>Encriptar texto</h2>
+        <ul class="list-group">
+          <li class="list-group-item" style="word-wrap: break-word">
+            <b>Texto original:</b></br> {{ original.text }}
+          </li>
+          <li class="list-group-item" v-for="te in text_encrypt" style="word-wrap: break-word">
+            <b>Texto encriptado:</b></br> {{ te }}
+          </li>
+        </ul>
+        <div class="input-group" style="width: 100%;margin: 0.5em 0;">
+          <input type="text"
+          class="form-control"
+          placeholder="Ingrese el ID de la llave"
+          v-model="pairkey.id">
+        </div>
+        <div class="input-group">
+          <input type="text"
+          class="form-control"
+          placeholder="Ingres el texto a cifrar"
+          v-on:keyup.enter="encrypt"
+          v-model="original.text">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button" v-on:click="encrypt">Cifrar</button>
+          </span>
+        </div>
+        <!-- DECRYPT TEXT -->
+        <h2>Desencriptar texto</h2>
+        <ul class="list-group">
+          <li class="list-group-item" style="word-wrap: break-word">
+            <b>Texto encriptado:</b></br> {{ original2.text }}
+          </li>
+          <li class="list-group-item" v-for="tp in text_plain" style="word-wrap: break-word">
+            <b>Texto original:</b></br>{{ tp }}
+          </li>
+        </ul>
+        <div class="input-group" style="width: 100%;margin: 0.5em 0;">
+          <input type="text"
+          class="form-control"
+          placeholder="Ingrese el ID de la llave"
+          v-model="pairkey2.id">
+        </div>
+        <div class="input-group">
+          <input type="text"
+          class="form-control"
+          placeholder="Ingrese el texto cifrado"
+          v-on:keyup.enter="encrypt"
+          v-model="original2.text">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button" v-on:click="descrypt">Decifrar</button>
+          </span>
+        </div>
+          <script src="./js/script.js"></script>
+      </div>
+    </div>
+  </div>
+</br>
+</body>
+
+</html>
