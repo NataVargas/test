@@ -49,3 +49,9 @@ Note: if you have another operative system, please follow the steps noted in [Co
 `CREATE DATABASE keypairrsa;`
 `CREATE USER IF NOT EXISTS nata;`
 `GRANT ALL ON DATABASE bank TO nata;`
+
+## Execute main script
+
+1. Open a new command prompt, navigate to the **test** directory and run go file.
+
+`go run main.go`
