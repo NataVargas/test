@@ -56,4 +56,6 @@ Note: if you have another operative system, please follow the steps noted in [Co
 
 `go run main.go`
 
+2. You will be able to see the web service in localhost:3333 on your browser.
+
 Note: you must have a Local Cluster (Insecure) running.
