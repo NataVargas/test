@@ -55,3 +55,5 @@ Note: if you have another operative system, please follow the steps noted in [Co
 1. Open a new command prompt, navigate to the **test** directory and run go file.
 
 `go run main.go`
+
+Note: you must have a Local Cluster (Insecure) running.
